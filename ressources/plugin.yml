@@ -1,0 +1,62 @@
+name: CorePlugin
+author: iTrooz_
+description: Commandes Coeurs par iTrooz_
+version: '2.0'
+main: fr.entasia.coreplugin.Main
+depend: [Libraries]
+softdepend: [Multiverse-Core, Vault]
+commands:
+  god:
+
+  tp:
+
+  tphere:
+
+  gamemode:
+    aliases: [gm]
+
+  speed:
+
+  lockdown:
+    aliases: [ld]
+
+  clear:
+
+  top:
+
+  item:
+
+  fly:
+
+  nightvision:
+    aliases: [nv]
+
+  setbwarp:
+
+  bwarp:
+    aliases: [bwarps]
+
+  delbwarp:
+
+  whois:
+
+  commandspy:
+    aliases: [cmdspy]
+
+  crashcmd:
+
+  amount:
+
+  ram:
+    aliases: [memory, mem]
+
+  runas:
+
+  skull:
+    aliases: [head]
+
+  getrawblock:
+
+  setrawblock:
+
+  heal:
