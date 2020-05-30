@@ -30,7 +30,7 @@ public class Main extends JavaPlugin{
 	public static Chat vaultChat=null;
 	public static String lockdown;
 	public static List<UUID> gods = new ArrayList<>();
-	public static List<UUID> spyers = new ArrayList<>();
+	public static List<String> spyers = new ArrayList<>();
 	public static List<Warp> warps = new ArrayList<>();
 	public static File datafile;
 	public static FileConfiguration dataconfig;
@@ -89,7 +89,7 @@ public class Main extends JavaPlugin{
 
 			new Task().runTaskTimerAsynchronously(this, 0, 4800); // 4 * 60 * 20 = 4800
 
-			if(dataconfig.getStringList("spyers")!=null) dataconfig.getStringList("spyers").forEach(i->spyers.add(UUID.fromString(i)));
+			if(dataconfig.getStringList("spyers")!=null) spyers.addAll(dataconfig.getStringList("spyers"));
 			lockdown = dataconfig.getString("lockdown");
 
 			SocketClient.sendData("onlines 0");
@@ -127,13 +127,13 @@ public class Main extends JavaPlugin{
 				Double.parseDouble(args[2])+0.5);
 	}
 
-	public static void addSpyer(UUID uuid){
-		spyers.add(uuid);
+	public static void addSpyer(String name){
+		spyers.add(name);
 
 		String[] a = new String[spyers.size()];
 		int i=0;
-		for(UUID b : spyers){
-			a[i] = b.toString();
+		for(String s : spyers){
+			a[i] = s;
 			i++;
 		}
 		dataconfig.set("spyers", a);
@@ -144,13 +144,13 @@ public class Main extends JavaPlugin{
 			e.printStackTrace();
 		}
 	}
-	public static void removeSpyer(UUID uuid){
-		spyers.remove(uuid);
+	public static void removeSpyer(String name){
+		spyers.remove(name);
 
 		String[] a = new String[spyers.size()];
 		int i=0;
-		for(UUID b : spyers){
-			a[i] = b.toString();
+		for(String s : spyers){
+			a[i] = s;
 			i++;
 		}
 		dataconfig.set("spyers", a);

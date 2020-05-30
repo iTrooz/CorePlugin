@@ -1,6 +1,8 @@
 package fr.entasia.coreplugin.commands;
 
+import fr.entasia.apis.ChatComponent;
 import fr.entasia.coreplugin.Main;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -22,11 +24,11 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 		Player p = (Player) sender;
 		if(p.hasPermission("restricted.commandspy")){
 			if(args.length==0) {
-				if (Main.spyers.contains(p.getUniqueId())) {
-					Main.removeSpyer(p.getUniqueId());
+				if (Main.spyers.contains(p.getName())) {
+					Main.removeSpyer(p.getName());
 					p.sendMessage("§aTu as désactivé le Commandspy !");
 				} else {
-					Main.addSpyer(p.getUniqueId());
+					Main.addSpyer(p.getName());
 					p.sendMessage("§aTu as activé le Commandspy !");
 				}
 			}else {
@@ -34,29 +36,21 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 					if (Main.spyers.size() == 0) p.sendMessage("§cPersonne n'a activé le commandspy pour le moment !");
 					else {
 						p.sendMessage("§aListe des gens en commandspy :");
-						for (UUID i : Main.spyers) {
-							Player tp = Bukkit.getPlayer(i);
-							String st;
-							if(tp==null)st = "UUID="+i;
-							else st = tp.getName();
-							TextComponent spy = new TextComponent("§2 -§a "+st);
-							ComponentBuilder cb = new ComponentBuilder("§aUUID : §2" + i.toString());
-							spy.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, cb.create()));
-							spy.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/commandspy " + st));
-							p.sendMessage(spy);
+						for (String s : Main.spyers) {
+							Player tp = Bukkit.getPlayer(s);
+							ChatComponent spy = new ChatComponent("§2 -§a "+tp.getName());
+							spy.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponent.create("§cClique pour désactiver le commandspy !")));
+							spy.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/commandspy "+tp.getName()));
+							p.sendMessage(spy.create());
 						}
 					}
 				} else {
-					Player t = Bukkit.getPlayer(args[0]);
-					if (t == null) p.sendMessage("§cToggle du commandspy de joeuurs hors-ligne : non implémenté !");
-					else {
-						if (Main.spyers.contains(t.getUniqueId())) {
-							Main.removeSpyer(p.getUniqueId());
-							p.sendMessage("§aTu as désactivé le Commandspy de " + Main.formatPlayerSuffix(t) + "§a !");
-						} else {
-							Main.addSpyer(t.getUniqueId());
-							p.sendMessage("§aTu as activé le Commandspy " + Main.formatPlayerSuffix(t) + "§a !");
-						}
+					if (Main.spyers.contains(args[0])){
+						Main.removeSpyer(args[0]);
+						p.sendMessage("§aTu as désactivé le Commandspy de " + args[0] + "§a !");
+					} else {
+						Main.addSpyer(args[0]);
+						p.sendMessage("§aTu as activé le Commandspy " + args[0] + "§a !");
 					}
 				}
 			}
