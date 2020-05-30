@@ -21,7 +21,7 @@ public class TPCmd implements CommandExecutor {
 				if (target == null) p.sendMessage("§cErreur §8» §c "+args[0]+" n'est pas connecté ou n'existe pas !");
 				else{
 					p.teleport(target.getLocation());
-					p.sendMessage("§aTu t'est téléporté à " + Main.formatPlayerSuffix(target)+ "§a !");
+					p.sendMessage("§aTu t'es téléporté à " + Main.formatPlayerSuffix(target)+ "§a !");
 				}
 
 			}else if(args.length == 2){

@@ -47,7 +47,7 @@ public class ItemCmd implements CommandExecutor {
 				}
 				if (target == null) {
 					p.getInventory().addItem(item);
-					p.sendMessage("§aTu t'est give §2" + item.getAmount() + " " + item.getType().getData().getName() + "§a !");
+					p.sendMessage("§aTu t'es give §2" + item.getAmount() + " " + item.getType().getData().getName() + "§a !");
 				} else {
 					target.getInventory().addItem(item);
 					p.sendMessage("§aTu as give §2" + item.getAmount() + " " + item.getType().getData().getName() + "§a a " + Main.formatPlayerSuffix(target) + "§a !");
