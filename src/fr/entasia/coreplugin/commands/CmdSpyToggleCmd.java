@@ -26,7 +26,7 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 			if(args.length==0) {
 				if (Main.spyers.contains(p.getName())) {
 					Main.removeSpyer(p.getName());
-					p.sendMessage("§aTu as désactivé le Commandspy !");
+					p.sendMessage("§cTu as désactivé le Commandspy !");
 				} else {
 					Main.addSpyer(p.getName());
 					p.sendMessage("§aTu as activé le Commandspy !");
@@ -37,10 +37,9 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 					else {
 						p.sendMessage("§aListe des gens en commandspy :");
 						for (String s : Main.spyers) {
-							Player tp = Bukkit.getPlayer(s);
-							ChatComponent spy = new ChatComponent("§2 -§a "+tp.getName());
+							ChatComponent spy = new ChatComponent("§2 -§a "+s);
 							spy.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponent.create("§cClique pour désactiver le commandspy !")));
-							spy.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/commandspy "+tp.getName()));
+							spy.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/commandspy "+s));
 							p.sendMessage(spy.create());
 						}
 					}
@@ -50,7 +49,7 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 						p.sendMessage("§aTu as désactivé le Commandspy de " + args[0] + "§a !");
 					} else {
 						Main.addSpyer(args[0]);
-						p.sendMessage("§aTu as activé le Commandspy " + args[0] + "§a !");
+						p.sendMessage("§cTu as activé le Commandspy " + args[0] + "§c !");
 					}
 				}
 			}

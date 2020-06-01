@@ -55,7 +55,7 @@ public class BWarpCmd implements CommandExecutor {
 	private static void sendWarp(Player p, Warp w) {
 		ChatComponent warp = new ChatComponent("§a- "+w.name);
 		ChatComponent hover = new ChatComponent("§aInfos sur le warp §2" + w.name + "§a :\n§aX : " + w.loc.getBlockX() + ", Y : " + w.loc.getBlockY() +
-				" & Z : " + w.loc.getBlockZ() + "\n§aMonde : " + w.world + "\n§aCréateur : " + w.name);
+				" & Z : " + w.loc.getBlockZ() + "\n§aMonde : " + w.world + "\n§aCréateur : " + w.creator);
 		if(Bukkit.getWorld(w.world)==null){
 			warp.setColor(ChatColor.GRAY);
 			hover.append(new ChatComponent("Le monde de ce warp est invalide !"));
