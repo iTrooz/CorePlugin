@@ -58,10 +58,9 @@ public class Others implements Listener {
 		cmd.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponent.create("§aClique pour copier la commande !")));
 		cmd.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, tcmd));
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (Main.spyers.contains(p.getUniqueId())) {
-				if (p.hasPermission("restricted.commandspy"))
-					p.sendMessage(cmd);
-				else Main.spyers.remove(p.getUniqueId());
+			if (Main.spyers.contains(p.getName())) {
+				if (p.hasPermission("restricted.commandspy"))p.sendMessage(cmd);
+				else Main.spyers.remove(p.getName());
 			}
 		}
 	}
