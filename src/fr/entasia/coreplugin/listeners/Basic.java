@@ -65,9 +65,10 @@ public class Basic implements Listener {
 		}
 	}
 	@EventHandler
-	public void noUproot(PlayerInteractEvent event) {
-		if(event.getAction() == Action.PHYSICAL && event.getClickedBlock().getType() == Material.SOIL){
-			event.setCancelled(true);
+	public void noUproot(PlayerInteractEvent e) {
+		if(e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.SOIL){
+			e.setCancelled(true);
+			e.getClickedBlock().setType(Material.SOIL);
 		}
 	}
 
