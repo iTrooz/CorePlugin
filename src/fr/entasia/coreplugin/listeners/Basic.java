@@ -2,6 +2,7 @@ package fr.entasia.coreplugin.listeners;
 
 import fr.entasia.apis.Signer;
 import fr.entasia.coreplugin.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -68,7 +69,7 @@ public class Basic implements Listener {
 	public void noUproot(PlayerInteractEvent e) {
 		if(e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.SOIL){
 			e.setCancelled(true);
-			e.getClickedBlock().setType(Material.SOIL);
+			e.getClickedBlock().getState().update(true);
 		}
 	}
 
