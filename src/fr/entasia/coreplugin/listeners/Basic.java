@@ -52,14 +52,15 @@ public class Basic implements Listener {
 
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void Interact(PlayerInteractEvent e) {
-		if(e.getAction() == Action.RIGHT_CLICK_BLOCK&&e.getClickedBlock().getType() == Material.SIGN_POST){
-			if(e.isCancelled())return;
-			e.setCancelled(true);
-			if(Signer.activate){
-				Signer.open(e.getPlayer(), e.getClickedBlock().getX(), e.getClickedBlock().getY(), e.getClickedBlock().getZ(), (String[] lines) -> {
-					Sign sign = (Sign) e.getClickedBlock().getState();
-					for(int i=0; i<4;i++) sign.setLine(i, lines[i]);
-				});
+		if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
+			if(e.getClickedBlock().getType() == Material.SIGN_POST||e.getClickedBlock().getType()==Material.SIGN) {
+				e.setCancelled(true);
+				if(Signer.activate) {
+					Signer.open(e.getPlayer(), e.getClickedBlock().getX(), e.getClickedBlock().getY(), e.getClickedBlock().getZ(), (String[] lines) -> {
+						Sign sign = (Sign) e.getClickedBlock().getState();
+						for (int i = 0; i < 4; i++) sign.setLine(i, lines[i]);
+					});
+				}
 			}
 		}
 	}
