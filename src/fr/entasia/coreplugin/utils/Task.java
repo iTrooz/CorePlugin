@@ -15,18 +15,18 @@ public class Task extends BukkitRunnable {
 		File a = new File("logs/latest.log");
 		if(a.exists()){
 			double d = a.length()/1024f/1024f;
-			if(d>1) ServerUtils.permMsg("logs.logs",
+			if(d>1) ServerUtils.permMsg("log.logs",
 					"§cLes logs font plus de §8"+Math.round(d*100)/100f+"§cMo !");
 
 			d = (Runtime.getRuntime().freeMemory()/(float)Runtime.getRuntime().maxMemory())/1073741824f;
-			if(d>0.90)ServerUtils.permMsg("logs.ram",
+			if(d>0.90)ServerUtils.permMsg("log.ram",
 					"§cLa mémoire est à §8"+Math.round(d*100)/100f+"§c% !");
 
 			d = Bukkit.getServer().getTPS()[0];
-			if(d<19.5)ServerUtils.permMsg("logs.tps",
+			if(d<19.5)ServerUtils.permMsg("log.tps",
 					"§cLes TPS sont à moins de §8"+Math.round(d*100)/100f+"§c% !");
 
-		}else ServerUtils.permMsg("logs.logs",
+		}else ServerUtils.permMsg("log.logs",
 				"§cImpossible de trouver le fichiers des logs ! Redémarre le serveur pour réparer ce problème");
 	}
 }
