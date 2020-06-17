@@ -29,13 +29,12 @@ public class BWarpCmd implements CommandExecutor {
 					sendPage(p, Integer.parseInt(args[0]));
 				}catch(NumberFormatException ignore){
 					List<Warp> f = new ArrayList<>();
-					boolean contains = args[0].length()>3;
 					for (Warp w : Main.warps){
 						if (w.name.equalsIgnoreCase(args[0])){
 							w.teleport(p);
 							return true;
 						}
-						else if (contains&&w.name.contains(args[0]))f.add(w);
+						else if (w.name.contains(args[0]))f.add(w);
 					}
 
 					if (f.size() == 0){
