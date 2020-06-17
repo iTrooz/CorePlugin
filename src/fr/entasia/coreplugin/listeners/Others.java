@@ -68,7 +68,7 @@ public class Others implements Listener {
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
 		String msg = TextUtils.formatMessage(e.getMessage(), ChatColor.GRAY);
-		if (e.getPlayer().hasPermission("chat.color")) msg = msg.replace("&", "§");
+		if (e.getPlayer().hasPermission("chat.color")) msg = TextUtils.setColors(msg);
 		boolean everyone = false;
 		if (msg.contains("@everyone") && e.getPlayer().hasPermission("staff.everyone")) {
 			everyone = true;
