@@ -76,8 +76,6 @@ public class Main extends JavaPlugin{
 			getCommand("runas").setExecutor(new RunasCmd());
 
 			getCommand("skull").setExecutor(new SkullCmd());
-			getCommand("getrawblock").setExecutor(new GetRawBlockCmd());
-			getCommand("setrawblock").setExecutor(new SetRawBlockCmd());
 			getCommand("heal").setExecutor(new HealCmd());
 
 			getServer().getPluginManager().registerEvents(new Basic(), this);

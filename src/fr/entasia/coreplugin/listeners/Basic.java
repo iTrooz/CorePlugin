@@ -1,8 +1,7 @@
 package fr.entasia.coreplugin.listeners;
 
-import fr.entasia.apis.Signer;
+import fr.entasia.apis.other.Signer;
 import fr.entasia.coreplugin.Main;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -23,7 +22,10 @@ public class Basic implements Listener {
 	public void onDamage(EntityDamageEvent e){
 		if(e.getEntity() instanceof Player){
 			Player p = (Player) e.getEntity();
-			if(Main.gods.contains(p.getUniqueId())) e.setCancelled(true);
+			if(Main.gods.contains(p.getUniqueId())){
+				e.setCancelled(true);
+				if(e.getCause()== EntityDamageEvent.DamageCause.VOID)p.teleport(p.getWorld().getSpawnLocation());
+			}
 		}
 
 	}
