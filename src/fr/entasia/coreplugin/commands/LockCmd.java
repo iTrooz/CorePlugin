@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.apis.ServerUtils;
+import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.coreplugin.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

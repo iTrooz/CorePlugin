@@ -1,19 +1,13 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.apis.ChatComponent;
+import fr.entasia.apis.other.ChatComponent;
 import fr.entasia.coreplugin.Main;
-import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.UUID;
 
 public class CmdSpyToggleCmd implements CommandExecutor {
 

@@ -1,9 +1,9 @@
 package fr.entasia.coreplugin.listeners;
 
-import fr.entasia.apis.ChatComponent;
-import fr.entasia.apis.ServerUtils;
-import fr.entasia.apis.TextUtils;
+import fr.entasia.apis.other.ChatComponent;
 import fr.entasia.apis.socket.SocketClient;
+import fr.entasia.apis.utils.ServerUtils;
+import fr.entasia.apis.utils.TextUtils;
 import fr.entasia.coreplugin.Main;
 import fr.entasia.coreplugin.utils.ConsoleFilter;
 import net.md_5.bungee.api.ChatColor;

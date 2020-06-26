@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.apis.ChatComponent;
+import fr.entasia.apis.other.ChatComponent;
 import fr.entasia.coreplugin.Main;
 import fr.entasia.coreplugin.utils.Warp;
 import net.md_5.bungee.api.ChatColor;
