@@ -94,7 +94,7 @@ public class Main extends JavaPlugin{
 			getLogger().info("Plugin activé !");
 		}catch(Throwable e){
 			e.printStackTrace();
-			System.out.println("LE SERVEUR VA S'ETEINDRE !");
+			getLogger().severe("LE SERVEUR VA S'ETEINDRE !");
 			Bukkit.getServer().shutdown();
 		}
 	}
@@ -107,8 +107,7 @@ public class Main extends JavaPlugin{
 	private static void loadWarps() {
 		warps.clear();
 		ConfigurationSection config = dataconfig.getConfigurationSection("warps");
-		if(config==null)
-			System.out.println("Aucune warp détectée !");
+		if(config==null) main.getLogger().warning("Aucune warp détectée !");
 		else{
 			for (String name : config.getKeys(false)) {
 				Location loc = parseLocation(config.getString(name + ".location"));
