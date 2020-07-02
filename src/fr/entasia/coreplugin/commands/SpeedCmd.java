@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,11 +31,11 @@ public class SpeedCmd implements CommandExecutor {
 						else{
 							if (target.isFlying()) {
 								target.setFlySpeed(value / 10f);
-								p.sendMessage(Main.formatPlayerSuffix(target) + "§a a maintenant la vitesse de vol " + value + " !");
+								p.sendMessage(Utils.formatPlayerSuffix(target) + "§a a maintenant la vitesse de vol " + value + " !");
 							} else {
 								float speed = (value - 1) / 9f; // CODE DE ESSENTIALS, A COMPRENDRE
 								target.setWalkSpeed((speed * 0.8f) + 0.2f); // CODE DE ESSENTIALS, A COMPRENDRE
-								p.sendMessage(Main.formatPlayerSuffix(target) + "§a a maintenant la vitesse de marche " + value + " !");
+								p.sendMessage(Utils.formatPlayerSuffix(target) + "§a a maintenant la vitesse de marche " + value + " !");
 							}
 						}
 					} else p.sendMessage("§cTu n'as pas la permission de changer la vitesse des autres joueurs !");

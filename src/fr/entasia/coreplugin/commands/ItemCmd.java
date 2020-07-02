@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -50,7 +50,7 @@ public class ItemCmd implements CommandExecutor {
 					p.sendMessage("§aTu t'es give §2" + item.getAmount() + " " + item.getType().getData().getName() + "§a !");
 				} else {
 					target.getInventory().addItem(item);
-					p.sendMessage("§aTu as give §2" + item.getAmount() + " " + item.getType().getData().getName() + "§a a " + Main.formatPlayerSuffix(target) + "§a !");
+					p.sendMessage("§aTu as give §2" + item.getAmount() + " " + item.getType().getData().getName() + "§a a " + Utils.formatPlayerSuffix(target) + "§a !");
 				}
 			}
 		} else p.sendMessage("§cTu n'as pas accès à cette commande !");

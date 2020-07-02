@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -73,16 +73,16 @@ public class GamemodeCmd implements CommandExecutor {
 							target.setGameMode(gm);
 							switch (gm) {
 								case SURVIVAL:
-									p.sendMessage("§aLe mode de jeu de " + Main.formatPlayerSuffix(target) + "§a a été mis en Survie !");
+									p.sendMessage("§aLe mode de jeu de " + Utils.formatPlayerSuffix(target) + "§a a été mis en Survie !");
 									break;
 								case CREATIVE:
-									p.sendMessage("§aLe mode de jeu de " + Main.formatPlayerSuffix(target) + "§a a été mis en Créatif !");
+									p.sendMessage("§aLe mode de jeu de " + Utils.formatPlayerSuffix(target) + "§a a été mis en Créatif !");
 									break;
 								case ADVENTURE:
-									p.sendMessage("§aLe mode de jeu de " + Main.formatPlayerSuffix(target) + "§a a été mis en Aventure !");
+									p.sendMessage("§aLe mode de jeu de " + Utils.formatPlayerSuffix(target) + "§a a été mis en Aventure !");
 									break;
 								case SPECTATOR:
-									p.sendMessage("§aLe mode de jeu de " + Main.formatPlayerSuffix(target) + "§a a été mis en Spectateur !");
+									p.sendMessage("§aLe mode de jeu de " + Utils.formatPlayerSuffix(target) + "§a a été mis en Spectateur !");
 									break;
 							}
 						}

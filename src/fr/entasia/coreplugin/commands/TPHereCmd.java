@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,7 +20,7 @@ public class TPHereCmd implements CommandExecutor {
 				if(target == null)p.sendMessage("§cErreur §8» §c Ce joueur n'est pas connecté ou n'existe pas !");
 				else{
 					target.teleport(p.getLocation());
-					p.sendMessage("§aTu as téléporté "+ Main.formatPlayerSuffix(target)+"§a à toi !");
+					p.sendMessage("§aTu as téléporté "+ Utils.formatPlayerSuffix(target)+"§a à toi !");
 				}
 
 			}

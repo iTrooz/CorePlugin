@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -21,7 +21,7 @@ public class TPCmd implements CommandExecutor {
 				if (target == null) p.sendMessage("§cErreur §8» §c "+args[0]+" n'est pas connecté ou n'existe pas !");
 				else{
 					p.teleport(target.getLocation());
-					p.sendMessage("§aTu t'es téléporté à " + Main.formatPlayerSuffix(target)+ "§a !");
+					p.sendMessage("§aTu t'es téléporté à " + Utils.formatPlayerSuffix(target)+ "§a !");
 				}
 
 			}else if(args.length == 2){
@@ -33,7 +33,7 @@ public class TPCmd implements CommandExecutor {
 						if (to == null) p.sendMessage("§cErreur §8» §c "+args[1]+"n'est pas connecté ou n'existe pas!");
 						else{
 							target.teleport(to.getLocation());
-							p.sendMessage("§aTu as téléporté "+ Main.formatPlayerSuffix(target)+"§a a "+ Main.formatPlayerSuffix(to)+"§a !");
+							p.sendMessage("§aTu as téléporté "+ Utils.formatPlayerSuffix(target)+"§a a "+ Utils.formatPlayerSuffix(to)+"§a !");
 						}
 
 					}

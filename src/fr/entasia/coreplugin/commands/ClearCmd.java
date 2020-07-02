@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,9 +31,9 @@ public class ClearCmd implements CommandExecutor {
 						for(ItemStack it : target.getInventory().getContents()) if(it != null) items += it.getAmount();
 						target.getInventory().clear();
 						if(items == 1)
-							p.sendMessage("§aL'inventaire de "+ Main.formatPlayerSuffix(target)+"§a a été supprimé ! (§b1§a item supprimé)");
+							p.sendMessage("§aL'inventaire de "+ Utils.formatPlayerSuffix(target)+"§a a été supprimé ! (§b1§a item supprimé)");
 						else
-							p.sendMessage("§aL'inventaire de "+ Main.formatPlayerSuffix(target)+"§a a été supprimé ! (§b"+items+"§a items supprimés)");
+							p.sendMessage("§aL'inventaire de "+ Utils.formatPlayerSuffix(target)+"§a a été supprimé ! (§b"+items+"§a items supprimés)");
 					}
 				}
 			}

@@ -1,6 +1,7 @@
 package fr.entasia.coreplugin.commands;
 
 import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,10 +32,10 @@ public class GodCommand implements CommandExecutor {
 						else {
 							if (Main.gods.contains(target.getUniqueId())) {
 								Main.gods.remove(target.getUniqueId());
-								p.sendMessage("§aTu as désactivé le mode Dieu de " + Main.formatPlayerSuffix(target) + " §a!");
+								p.sendMessage("§aTu as désactivé le mode Dieu de " + Utils.formatPlayerSuffix(target) + " §a!");
 							} else {
 								Main.gods.add(target.getUniqueId());
-								p.sendMessage("§aTu as activé le mode Dieu de " + Main.formatPlayerSuffix(target) + " §a!");
+								p.sendMessage("§aTu as activé le mode Dieu de " + Utils.formatPlayerSuffix(target) + " §a!");
 							}
 						}
 					}else p.sendMessage("§c Tu n'as pas la permission de changer le mode Dieu des autres joueurs !");

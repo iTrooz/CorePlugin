@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,10 +31,10 @@ public class NVCmd implements CommandExecutor {
 					else{
 						if(target.hasPotionEffect(PotionEffectType.NIGHT_VISION)){
 							target.removePotionEffect(PotionEffectType.NIGHT_VISION);
-							p.sendMessage("§aTu as désactivé la vision nocturne de "+ Main.formatPlayerSuffix(target)+" §a!");
+							p.sendMessage("§aTu as désactivé la vision nocturne de "+ Utils.formatPlayerSuffix(target)+" §a!");
 						} else {
 							target.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 999999, 255));
-							p.sendMessage("§aTu as activé la vision nocturne de "+ Main.formatPlayerSuffix(target)+" §a!");
+							p.sendMessage("§aTu as activé la vision nocturne de "+ Utils.formatPlayerSuffix(target)+" §a!");
 						}
 					}
 				}else p.sendMessage("§cErreur §8» §cTu n'as pas la permission de changer la vision nocture des autres joueurs !");

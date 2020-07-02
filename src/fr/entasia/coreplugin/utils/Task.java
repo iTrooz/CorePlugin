@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.utils;
 
-import fr.entasia.apis.ServerUtils;
+import fr.entasia.apis.utils.ServerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 

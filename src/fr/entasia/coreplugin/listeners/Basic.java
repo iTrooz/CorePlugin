@@ -2,6 +2,7 @@ package fr.entasia.coreplugin.listeners;
 
 import fr.entasia.apis.other.Signer;
 import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -44,12 +45,12 @@ public class Basic implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onJoin(PlayerJoinEvent e){
-		e.setJoinMessage(Main.formatPlayerSuffix(e.getPlayer())+" §7a rejoint le serveur !");
+		e.setJoinMessage(Utils.formatPlayerSuffix(e.getPlayer())+" §7a rejoint le serveur !");
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onQuit(PlayerQuitEvent e){
-		e.setQuitMessage(Main.formatPlayerSuffix(e.getPlayer())+"§7 a quitté le serveur !");
+		e.setQuitMessage(Utils.formatPlayerSuffix(e.getPlayer())+"§7 a quitté le serveur !");
 		Main.gods.remove(e.getPlayer().getUniqueId());
 	}
 

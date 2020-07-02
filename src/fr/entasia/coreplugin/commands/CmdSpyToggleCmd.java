@@ -2,6 +2,7 @@ package fr.entasia.coreplugin.commands;
 
 import fr.entasia.apis.other.ChatComponent;
 import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.command.Command;
@@ -19,10 +20,10 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 		if(p.hasPermission("restricted.commandspy")){
 			if(args.length==0) {
 				if (Main.spyers.contains(p.getName())) {
-					Main.removeSpyer(p.getName());
+					Utils.removeSpyer(p.getName());
 					p.sendMessage("§cTu as désactivé le Commandspy !");
 				} else {
-					Main.addSpyer(p.getName());
+					Utils.addSpyer(p.getName());
 					p.sendMessage("§aTu as activé le Commandspy !");
 				}
 			}else {
@@ -39,10 +40,10 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 					}
 				} else {
 					if (Main.spyers.contains(args[0])){
-						Main.removeSpyer(args[0]);
+						Utils.removeSpyer(args[0]);
 						p.sendMessage("§aTu as désactivé le Commandspy de " + args[0] + "§a !");
 					} else {
-						Main.addSpyer(args[0]);
+						Utils.addSpyer(args[0]);
 						p.sendMessage("§cTu as activé le Commandspy " + args[0] + "§c !");
 					}
 				}

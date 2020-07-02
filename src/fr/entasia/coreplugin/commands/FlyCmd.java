@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -30,10 +30,10 @@ public class FlyCmd implements CommandExecutor {
 					else {
 						if (target.getAllowFlight()) {
 							target.setAllowFlight(false);
-							p.sendMessage(Main.formatPlayerSuffix(target) + " §ane peut désormais plus voler !");
+							p.sendMessage(Utils.formatPlayerSuffix(target) + " §ane peut désormais plus voler !");
 						} else {
 							target.setAllowFlight(true);
-							p.sendMessage(Main.formatPlayerSuffix(target) + " §apeut désormais voler !");
+							p.sendMessage(Utils.formatPlayerSuffix(target) + " §apeut désormais voler !");
 						}
 					}
 				}

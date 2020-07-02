@@ -1,6 +1,6 @@
 package fr.entasia.coreplugin.commands;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.coreplugin.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,7 +25,7 @@ public class HealCmd implements CommandExecutor {
 				else {
 					target.setHealth(target.getMaxHealth());
 					target.setFoodLevel(20);
-					p.sendMessage("§aTu as heal "+Main.formatPlayerSuffix(target)+"§a !");
+					p.sendMessage("§aTu as heal "+ Utils.formatPlayerSuffix(target)+"§a !");
 				}
 			}
 		}else p.sendMessage("§cTu n'as pas accès à cette commande !");

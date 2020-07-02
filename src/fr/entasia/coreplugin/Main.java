@@ -40,10 +40,7 @@ public class Main extends JavaPlugin{
 		try{
 			main = this;
 			try{
-				vaultChat = getServer().
-						getServicesManager().
-						getRegistration(Chat.class).
-						getProvider();
+				vaultChat = getServer().getServicesManager().getRegistration(Chat.class).getProvider();
 				getLogger().info("Vault chargé avec succès ! Système de préfix activé !");
 			}catch(NullPointerException | NoClassDefFoundError e){
 				getLogger().info("Vault non trouvé ! Système de préfix désactivé !");
@@ -124,44 +121,4 @@ public class Main extends JavaPlugin{
 				Double.parseDouble(args[2])+0.5);
 	}
 
-	public static void addSpyer(String name){
-		spyers.add(name);
-
-		String[] a = new String[spyers.size()];
-		int i=0;
-		for(String s : spyers){
-			a[i] = s;
-			i++;
-		}
-		dataconfig.set("spyers", a);
-
-		try{
-			dataconfig.save(datafile);
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-	}
-	public static void removeSpyer(String name){
-		spyers.remove(name);
-
-		String[] a = new String[spyers.size()];
-		int i=0;
-		for(String s : spyers){
-			a[i] = s;
-			i++;
-		}
-		dataconfig.set("spyers", a);
-
-		try{
-			dataconfig.save(datafile);
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-	}
-
-	public static String formatPlayerSuffix(Player p){
-		if(vaultChat==null)return p.getDisplayName();
-		else return vaultChat.getPlayerSuffix(p).replace("&", "§")+p.getDisplayName();
-	}
-	
 }
