@@ -43,12 +43,12 @@ public class Basic implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR)
+	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
 		e.setJoinMessage(Utils.formatPlayerSuffix(e.getPlayer())+" §7a rejoint le serveur !");
 	}
 
-	@EventHandler(priority = EventPriority.MONITOR)
+	@EventHandler
 	public void onQuit(PlayerQuitEvent e){
 		e.setQuitMessage(Utils.formatPlayerSuffix(e.getPlayer())+"§7 a quitté le serveur !");
 		Main.gods.remove(e.getPlayer().getUniqueId());
