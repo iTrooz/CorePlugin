@@ -14,7 +14,7 @@ public class Utils {
 
 	public static String formatPlayerSuffix(Player p){
 		if(Main.vaultChat==null)return p.getDisplayName();
-		else return Main.vaultChat.getPlayerSuffix(p).replace("&", "§")+" "+p.getDisplayName();
+		else return Main.vaultChat.getPlayerSuffix(p).replace("&", "§")+" §7"+p.getDisplayName();
 	}
 
 	public static void removeSpyer(String name){
