@@ -10,8 +10,7 @@ import org.apache.logging.log4j.message.Message;
 public class ConsoleFilter extends AbstractFilter {
 
 	public static final String[] logincmds = new String[]{"/login", "/log", "/lo", "/l", "/register", "/reg"};
-
-
+	
 	@Override
 	public Result filter(LogEvent event) {
 		if (event == null) return Result.NEUTRAL;

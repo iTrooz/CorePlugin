@@ -87,7 +87,7 @@ public class Others implements Listener {
 			}
 		}
 		e.setMessage(msg);
-		e.setFormat(format(e.getPlayer())+"%1$s§8 | §7%2$s");
+		e.setFormat(format(e.getPlayer())+"§7 %1$s§8 | §7%2$s");
 	}
 
 

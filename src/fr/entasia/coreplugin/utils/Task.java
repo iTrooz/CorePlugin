@@ -22,7 +22,7 @@ public class Task extends BukkitRunnable {
 
 			d = Bukkit.getServer().getTPS()[0];
 			if(d<19.5)ServerUtils.permMsg("log.tps",
-					"§cLes TPS sont à moins de §8"+Math.round(d*100)/100f+"§c% !");
+					"§cLes TPS sont à moins de §8"+Math.round(d*100)/100f+"§c !");
 
 		}else ServerUtils.permMsg("log.logs",
 				"§cImpossible de trouver le fichiers des logs ! Redémarre le serveur pour réparer ce problème");
