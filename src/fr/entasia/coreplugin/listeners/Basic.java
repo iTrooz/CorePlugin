@@ -34,7 +34,7 @@ public class Basic implements Listener {
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onJoin(PlayerLoginEvent e){
 		if(Main.lockdown!=null){
-			if(e.getPlayer().hasPermission("entasia.lockdown.bypass")){
+			if(e.getPlayer().hasPermission("staff.lockdown.bypass")){
 				e.getPlayer().sendMessage(" \n§6Lockdown §8» §c§lTu as rejoint un serveur en maintenance !\n ");
 			}else{
 				e.setKickMessage("§cServeur en maintenance ! Raison : "+ Main.lockdown);
