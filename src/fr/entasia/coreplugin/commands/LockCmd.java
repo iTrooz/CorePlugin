@@ -17,7 +17,7 @@ public class LockCmd implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(!(sender instanceof Player))return false;
 			Player p = (Player) sender;
-			if(p.hasPermission("staff.lockdown")){
+			if(p.hasPermission("staff.lockdown.use")){
 
 				if (args.length != 0 && (args[0].equals("status") || args[0].equals("statut"))) {
 					if (Main.lockdown == null)
