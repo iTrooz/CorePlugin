@@ -15,6 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerCommandEvent;
@@ -49,7 +50,7 @@ public class Others implements Listener {
 		Cmd("§cConsole", e.getCommand());
 	}
 
-	private void Cmd(String by, String tcmd) {
+	private static void Cmd(String by, String tcmd) {
 		String lacmd = tcmd.split(" ")[0].toLowerCase();
 		for (String i : ConsoleFilter.logincmds) {
 			if (lacmd.equals(i)) return;
@@ -65,7 +66,7 @@ public class Others implements Listener {
 		}
 	}
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 	public void onChat(AsyncPlayerChatEvent e) {
 		String msg = TextUtils.formatMessage(e.getMessage(), ChatColor.GRAY);
 		if (e.getPlayer().hasPermission("chat.color")) msg = TextUtils.setColors(msg);
