@@ -66,7 +66,7 @@ public class Others implements Listener {
 		}
 	}
 
-	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+	@EventHandler(ignoreCancelled = true)
 	public void onChat(AsyncPlayerChatEvent e) {
 		String msg = TextUtils.formatMessage(e.getMessage(), ChatColor.GRAY);
 		if (e.getPlayer().hasPermission("chat.color")) msg = TextUtils.setColors(msg);
