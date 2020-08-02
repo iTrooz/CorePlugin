@@ -66,7 +66,7 @@ public class Others implements Listener {
 		}
 	}
 
-	@EventHandler(ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onChat(AsyncPlayerChatEvent e) {
 		String msg = TextUtils.formatMessage(e.getMessage(), ChatColor.GRAY);
 		if (e.getPlayer().hasPermission("chat.color")) msg = TextUtils.setColors(msg);
@@ -88,9 +88,12 @@ public class Others implements Listener {
 			}
 		}
 		e.setMessage(msg);
-		e.setFormat(format(e.getPlayer())+"§7 %1$s§8 | §7%2$s");
 	}
 
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void chatFormat(AsyncPlayerChatEvent e){
+		e.setFormat(format(e.getPlayer()) + "§7 %1$s§8 | §7%2$s");
+	}
 
 
 	public static String format(Player p){
