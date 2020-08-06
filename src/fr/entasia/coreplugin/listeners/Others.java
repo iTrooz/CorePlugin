@@ -109,4 +109,9 @@ public class Others implements Listener {
 			SocketClient.sendData("BungeeCord send "+e.getPlayer().getName()+" hub");
 		}
 	}
+
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void a(PlayerTeleportEvent e){
+		e.getPlayer().setFallDistance(0);
+	}
 }
