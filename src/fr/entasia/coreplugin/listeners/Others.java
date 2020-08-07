@@ -101,7 +101,7 @@ public class Others implements Listener {
 		else return vaultChat.getPlayerPrefix(p).replace("&", "§");
 	}
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void a(PlayerKickEvent e){
 		if(ServerUtils.bungeeMode){
 			e.setCancelled(true);
