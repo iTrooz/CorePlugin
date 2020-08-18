@@ -101,8 +101,19 @@ public class Others implements Listener {
 		else return vaultChat.getPlayerPrefix(p).replace("&", "§");
 	}
 
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void a(PlayerKickEvent e) {
+		if (e.getReason().equals("Invalid move player packet received")) {
+			e.setCancelled(true);
+			e.getPlayer().teleport(e.getPlayer());
+			e.getPlayer().sendMessage("§cTon moteur magique vient de caler ! Ne t'inquiète pas, on te le répare..");
+		} else if (e.getReason().equals("disconnect.spam")) {
+			e.setCancelled(true);
+		}
+	}
+
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
-	public void a(PlayerKickEvent e){
+	public void b(PlayerKickEvent e){
 		if(ServerUtils.bungeeMode){
 			e.setCancelled(true);
 			e.getPlayer().sendMessage("§cVous avez été kick du serveur "+ServerUtils.serverName+" ! Raison : \n§7"+e.getReason());
