@@ -71,7 +71,7 @@ public class Others implements Listener {
 		String msg = TextUtils.formatMessage(e.getMessage(), ChatColor.GRAY);
 		if (e.getPlayer().hasPermission("chat.color")) msg = TextUtils.setColors(msg);
 		boolean everyone = false;
-		if (msg.contains("@everyone") && e.getPlayer().hasPermission("staff.everyone")) {
+		if (msg.contains("@everyone") && e.getPlayer().hasPermission("chat.everyone")) {
 			everyone = true;
 			msg = Pattern.compile("@everyone", Pattern.CASE_INSENSITIVE).matcher(msg).replaceAll("§9@everyone§7");
 		}
