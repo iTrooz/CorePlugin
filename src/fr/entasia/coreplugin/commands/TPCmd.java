@@ -30,7 +30,7 @@ public class TPCmd implements CommandExecutor {
 					if (target == null) p.sendMessage("§cErreur §8» §c "+args[0]+" n'est pas connecté ou n'existe pas!");
 					else{
 						Player to = Bukkit.getPlayer(args[1]);
-						if (to == null) p.sendMessage("§cErreur §8» §c "+args[1]+"n'est pas connecté ou n'existe pas!");
+						if (to == null) p.sendMessage("§cErreur §8» §c "+args[1]+" n'est pas connecté ou n'existe pas!");
 						else{
 							target.teleport(to.getLocation());
 							p.sendMessage("§aTu as téléporté "+ Utils.formatPlayerSuffix(target)+"§a a "+ Utils.formatPlayerSuffix(to)+"§a !");
