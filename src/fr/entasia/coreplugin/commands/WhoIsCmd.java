@@ -32,7 +32,7 @@ public class WhoIsCmd implements CommandExecutor {
 					ChatComponent location = new ChatComponent("§7Coordonnées : §7X : §b" + target.getLocation().getBlockX() + "§7, Y : §b" + target.getLocation().getBlockY() + "§7, Z : §b" + target.getLocation().getBlockZ() + "§7, Monde §b" + target.getWorld().getName());
 					location.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponent.create("§aCliquez pour vous téléporter au joueur !")));
 					location.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp " + target.getName()));
-					p.sendMessage(location.create());
+					p.spigot().sendMessage(location.create());
 					p.sendMessage("§bMode de jeu : §7" + getGmName(target.getGameMode()));
 					p.sendMessage("§bMode Dieu : §7" + getGod(target.getUniqueId()));
 					p.sendMessage("§bVol : §7" + getFly(target) + "§b " + getInFly(target));

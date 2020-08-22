@@ -63,7 +63,7 @@ public class BWarpCmd implements CommandExecutor {
 			warp.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/bwarp " + w.name));
 		}
 		warp.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hover.create()));
-		p.sendMessage(warp.create());
+		p.spigot().sendMessage(warp.create());
 	}
 
 	private static final int PAGE_LEN = 15;
@@ -107,7 +107,7 @@ public class BWarpCmd implements CommandExecutor {
 			afterC.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/bwarp "+(page+1)));
 		}else afterC.setColor(ChatColor.RED);
 
-		p.sendMessage(ChatComponent.create(beforeC, new ChatComponent("§7  |  "), afterC));
+		p.spigot().sendMessage(ChatComponent.create(beforeC, new ChatComponent("§7  |  "), afterC));
 
 	}
 }

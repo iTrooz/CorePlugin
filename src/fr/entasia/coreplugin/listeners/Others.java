@@ -60,7 +60,7 @@ public class Others implements Listener {
 		cmd.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, tcmd));
 		for (Player p : Bukkit.getOnlinePlayers()) {
 			if (Main.spyers.contains(p.getName())) {
-				if (p.hasPermission("restricted.commandspy"))p.sendMessage(cmd);
+				if (p.hasPermission("restricted.commandspy"))p.spigot().sendMessage(cmd);
 				else Main.spyers.remove(p.getName());
 			}
 		}

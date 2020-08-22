@@ -35,7 +35,7 @@ public class CmdSpyToggleCmd implements CommandExecutor {
 							ChatComponent spy = new ChatComponent("§2 -§a "+s);
 							spy.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, ChatComponent.create("§cClique pour désactiver le commandspy !")));
 							spy.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/commandspy "+s));
-							p.sendMessage(spy.create());
+							p.spigot().sendMessage(spy.create());
 						}
 					}
 				} else {
