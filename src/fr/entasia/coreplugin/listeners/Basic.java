@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Basic implements Listener {
 
-	@EventHandler(priority = EventPriority.LOWEST)
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onDamage(EntityDamageEvent e){
 		if(e.getEntity() instanceof Player){
 			Player p = (Player) e.getEntity();
