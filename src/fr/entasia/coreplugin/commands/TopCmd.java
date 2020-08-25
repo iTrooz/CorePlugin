@@ -14,16 +14,15 @@ public class TopCmd implements CommandExecutor {
 		if(!(sender instanceof Player))return false;
 		Player p = (Player) sender;
 		if(p.hasPermission("entasia.top")){
-
 			Location loc = p.getLocation();
 			int py = loc.getBlockY();
 			if(py<0)py=0;
 
 			for(int y=256; y > py; y--){
 				loc.setY(y);
-				if(loc.getBlock().getType() == Material.AIR) {
+				if(!loc.getBlock().getType().isSolid()) {
 					loc.setY(y+1);
-					if (loc.getBlock().getType() == Material.AIR) {
+					if (!loc.getBlock().getType().isSolid()) {
 						loc.setY(y-1);
 						if (loc.getBlock().getType().isSolid()) {
 							loc.setY(y);
