@@ -7,7 +7,6 @@ import fr.entasia.coreplugin.listeners.Others;
 import fr.entasia.coreplugin.utils.ConsoleFilter;
 import fr.entasia.coreplugin.utils.Task;
 import fr.entasia.coreplugin.utils.Warp;
-import net.milkbowl.vault.chat.Chat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.bukkit.Bukkit;
@@ -15,11 +14,9 @@ import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -27,7 +24,6 @@ import java.util.UUID;
 public class Main extends JavaPlugin{
 
 	public static Main main;
-	public static Chat vaultChat=null;
 	public static String lockdown;
 	public static List<UUID> gods = new ArrayList<>();
 	public static List<String> spyers = new ArrayList<>();
@@ -39,12 +35,6 @@ public class Main extends JavaPlugin{
 	public void onEnable() {
 		try{
 			main = this;
-			try{
-				vaultChat = getServer().getServicesManager().getRegistration(Chat.class).getProvider();
-				getLogger().info("Vault chargé avec succès ! Système de préfix activé !");
-			}catch(NullPointerException | NoClassDefFoundError e){
-				getLogger().info("Vault non trouvé ! Système de préfix désactivé !");
-			}
 
 
 			datafile = new File(getDataFolder()+"/data.yml");

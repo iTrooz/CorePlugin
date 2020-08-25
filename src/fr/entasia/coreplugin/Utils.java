@@ -1,6 +1,6 @@
-package fr.entasia.coreplugin.utils;
+package fr.entasia.coreplugin;
 
-import fr.entasia.coreplugin.Main;
+import fr.entasia.apis.utils.LPUtils;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -13,8 +13,8 @@ public class Utils {
 	}
 
 	public static String formatPlayerSuffix(Player p){
-		if(Main.vaultChat==null)return p.getDisplayName();
-		else return Main.vaultChat.getPlayerSuffix(p).replace("&", "§")+" §7"+p.getDisplayName();
+		if(LPUtils.enabled)return LPUtils.getPrefixSafe(p).key+" §7"+p.getDisplayName();
+		else return "§7"+p.getDisplayName();
 	}
 
 	public static void removeSpyer(String name){

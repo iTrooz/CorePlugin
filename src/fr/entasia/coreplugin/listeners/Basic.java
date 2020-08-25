@@ -2,7 +2,7 @@ package fr.entasia.coreplugin.listeners;
 
 import fr.entasia.apis.other.Signer;
 import fr.entasia.coreplugin.Main;
-import fr.entasia.coreplugin.utils.Utils;
+import fr.entasia.coreplugin.Utils;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;

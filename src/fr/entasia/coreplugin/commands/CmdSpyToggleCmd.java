@@ -2,7 +2,7 @@ package fr.entasia.coreplugin.commands;
 
 import fr.entasia.apis.other.ChatComponent;
 import fr.entasia.coreplugin.Main;
-import fr.entasia.coreplugin.utils.Utils;
+import fr.entasia.coreplugin.Utils;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.command.Command;

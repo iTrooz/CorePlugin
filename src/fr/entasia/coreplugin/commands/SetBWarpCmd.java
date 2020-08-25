@@ -1,7 +1,7 @@
 package fr.entasia.coreplugin.commands;
 
 import fr.entasia.coreplugin.Main;
-import fr.entasia.coreplugin.utils.Utils;
+import fr.entasia.coreplugin.Utils;
 import fr.entasia.coreplugin.utils.Warp;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

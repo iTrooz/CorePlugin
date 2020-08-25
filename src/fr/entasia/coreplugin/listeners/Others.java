@@ -1,7 +1,9 @@
 package fr.entasia.coreplugin.listeners;
 
 import fr.entasia.apis.other.ChatComponent;
+import fr.entasia.apis.other.Pair;
 import fr.entasia.apis.socket.SocketClient;
+import fr.entasia.apis.utils.LPUtils;
 import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.apis.utils.TextUtils;
 import fr.entasia.coreplugin.Main;
@@ -21,8 +23,6 @@ import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerCommandEvent;
 
 import java.util.regex.Pattern;
-
-import static fr.entasia.coreplugin.Main.vaultChat;
 
 public class Others implements Listener {
 
@@ -96,9 +96,9 @@ public class Others implements Listener {
 	}
 
 
-	public static String format(Player p){
-		if(vaultChat==null)return "§7";
-		else return vaultChat.getPlayerPrefix(p).replace("&", "§");
+	private static String format(Player p){
+		if(LPUtils.enabled) return  LPUtils.getPrefixSafe(p).key;
+		else return "";
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
