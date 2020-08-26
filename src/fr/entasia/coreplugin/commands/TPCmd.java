@@ -43,22 +43,27 @@ public class TPCmd implements CommandExecutor {
 			}else if(args.length >= 3){
 				if(p.hasPermission("entasia.tp.coordinates")){
 					try {
-						Location a = new Location(p.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
+						Location loc = new Location(p.getWorld(),
+								Double.parseDouble(args[0])+0.5,
+								Double.parseDouble(args[1])+0.2,
+								Double.parseDouble(args[2])+0.5
+						);
 						if (args.length >= 4) {
-							World b = Bukkit.getWorld(args[3]);
-							if (b == null) {
+							loc.setWorld(Bukkit.getWorld(args[3]));
+							if (loc.getWorld() == null) {
 								p.sendMessage("§cErreur §8» §c Le monde " + args[3] + " n'existe pas !");
 								return true;
 							}
 							p.sendMessage("§aTu as été téléporté en " + args[0] + " " + args[1] + " " + args[2] + "  monde " + args[3] + " !");
-						} else
+						} else{
 							p.sendMessage("§aTu as été téléporté en " + args[0] + " " + args[1] + " " + args[2] + " !");
-						p.teleport(a);
+						}
+						p.teleport(loc);
 					} catch (NumberFormatException e) {
 						p.sendMessage("§cErreur §8» §c Les coordonnées sont invalides !");
 					}
-				}else p.sendMessage("§cErreur §8» §c Tu n'as pas la permission de te téléporter à des coordonnées !");
-			}else p.sendMessage("§cErreur §8» §c Utilisations de la commande : /tp <joueur> ou ou /tp <joueur 1> <joueur 2> ou /tp <x> <y> <z> [monde]");
+				}else p.sendMessage("§cErreur : Tu n'as pas la permission de te téléporter à des coordonnées !");
+			}else p.sendMessage("§cErreur : Utilisations de la commande : /tp <joueur> ou ou /tp <joueur 1> <joueur 2> ou /tp <x> <y> <z> [monde]");
 		} else p.sendMessage("§cTu n'as pas accès à cette commande !");
 		return true;
 	}
