@@ -19,8 +19,18 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Basic implements Listener {
 
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void d1(EntityDamageEvent e){
+		if(e.getEntity() instanceof Player){
+			Player p = (Player) e.getEntity();
+			if(Main.gods.contains(p.getUniqueId())){
+				e.setCancelled(true);
+			}
+		}
+	}
+
 	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onDamage(EntityDamageEvent e){
+	public void d2(EntityDamageEvent e){
 		if(e.getEntity() instanceof Player){
 			Player p = (Player) e.getEntity();
 			if(Main.gods.contains(p.getUniqueId())){
@@ -28,7 +38,6 @@ public class Basic implements Listener {
 				if(e.getCause()== EntityDamageEvent.DamageCause.VOID)p.teleport(p.getWorld().getSpawnLocation());
 			}
 		}
-
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)

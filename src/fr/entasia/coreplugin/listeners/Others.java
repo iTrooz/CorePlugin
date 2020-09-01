@@ -107,7 +107,7 @@ public class Others implements Listener {
 			e.setCancelled(true);
 			e.getPlayer().teleport(e.getPlayer());
 			e.getPlayer().sendMessage("§cTon moteur magique vient de caler ! Ne t'inquiète pas, on te le répare..");
-		} else if (e.getReason().equals("disconnect.spam")) {
+		} else if (e.getReason().equals("disconnect.spam")||e.getReason().equals("Kicked for spamming")) {
 			e.setCancelled(true);
 		}
 	}
