@@ -22,7 +22,7 @@ public class SkullCmd implements CommandExecutor {
 				new BukkitRunnable() {
 					@Override
 					public void run() {
-						ItemStack item = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
+						ItemStack item = new ItemStack(Material.PLAYER_HEAD);
 						SkullMeta meta = (SkullMeta) item.getItemMeta();
 						meta.setOwner(args[0]);
 						item.setItemMeta(meta);

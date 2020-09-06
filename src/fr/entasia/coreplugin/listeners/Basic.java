@@ -4,6 +4,7 @@ import fr.entasia.apis.other.Signer;
 import fr.entasia.coreplugin.Main;
 import fr.entasia.coreplugin.Utils;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -66,7 +67,7 @@ public class Basic implements Listener {
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void Interact(PlayerInteractEvent e) {
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
-			if(e.getClickedBlock().getType() == Material.SIGN_POST||e.getClickedBlock().getType()==Material.SIGN) {
+			if(Tag.SIGNS.isTagged(e.getClickedBlock().getType())) {
 				e.setCancelled(true);
 				if(Signer.activate) {
 					Signer.open(e.getPlayer(), e.getClickedBlock().getX(), e.getClickedBlock().getY(), e.getClickedBlock().getZ(), (String[] lines) -> {
@@ -80,7 +81,7 @@ public class Basic implements Listener {
 	
 	@EventHandler
 	public void noUproot(PlayerInteractEvent e) {
-		if(e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.SOIL){
+		if(e.getAction() == Action.PHYSICAL && e.getClickedBlock().getType() == Material.FARMLAND){
 			e.setCancelled(true);
 			e.getClickedBlock().getState().update(true);
 		}
