@@ -15,7 +15,7 @@ public class GamemodeCmd implements CommandExecutor {
 		if (!(sender instanceof Player)) return false;
 		Player p = (Player) sender;
 		if(p.hasPermission("entasia.gamemode")) {
-			if (args.length == 0) p.sendMessage("§cErreur §8» §c Mauvaise utilisation de la commande ! Utilisation : /gamemode <gamemode>");
+			if (args.length == 0) p.sendMessage("§cErreur : Mauvaise utilisation de la commande ! Utilisation : /gamemode <gamemode>");
 			else {
 				GameMode gm;
 				switch (args[0]) {
@@ -46,7 +46,7 @@ public class GamemodeCmd implements CommandExecutor {
 						gm = GameMode.SPECTATOR;
 						break;
 					default:
-						p.sendMessage("§cErreur §8» §c Le mode de jeu " + args[0] + " n'existe pas !");
+						p.sendMessage("§cErreur : Le mode de jeu " + args[0] + " n'existe pas !");
 						return true;
 				}
 				if (args.length == 1) {

@@ -35,7 +35,7 @@ public class LockCmd implements CommandExecutor {
 						}
 					} else {
 						Main.lockdown = null;
-						Bukkit.broadcastMessage("§6Lockdown §8» §cDésactivé pour §e"+ServerUtils.serverName+"§c !");
+						Bukkit.broadcastMessage("§6Lockdown :Désactivé pour §e"+ServerUtils.serverName+"§c !");
 					}
 					Main.dataconfig.set("lockdown", Main.lockdown);
 					try{

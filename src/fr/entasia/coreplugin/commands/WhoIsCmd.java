@@ -21,7 +21,7 @@ public class WhoIsCmd implements CommandExecutor {
 		if(!(sender instanceof Player))return false;
 		Player p = (Player) sender;
 		if(p.hasPermission("entasia.whois")){
-			if(args.length == 0) p.sendMessage("§cErreur §8» §c Syntaxe : /whois <joueur>");
+			if(args.length == 0) p.sendMessage("§cErreur : Syntaxe : /whois <joueur>");
 			else {
 				Player target = Bukkit.getPlayer(args[0]);
 				if (target != null){

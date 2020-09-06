@@ -18,7 +18,7 @@ public class SetBWarpCmd implements CommandExecutor {
 		if(!(sender instanceof Player))return false;
 		Player p = (Player) sender;
 		if(p.hasPermission("build.setbwarp")){
-			if(args.length ==0)p.sendMessage("§cErreur §8» §c Mauvaise utilisation de la commande ! /setbwarp <Nom du warp>");
+			if(args.length ==0)p.sendMessage("§cErreur : Mauvaise utilisation de la commande ! /setbwarp <Nom du warp>");
 			else {
 				if (Warp.getByName(args[0]) == null) {
 					Warp a = new Warp(Utils.getRoundedLocation(p.getLocation()), p.getWorld().getName(), args[0], p.getName());
@@ -32,9 +32,9 @@ public class SetBWarpCmd implements CommandExecutor {
 					}catch(IOException e){
 						e.printStackTrace();
 						Main.warps.remove(a);
-						p.sendMessage("§cErreur §8» §c Le warp §l"+args[0]+"§c n'a pas été créé suite à une erreur interne (voir console)");
+						p.sendMessage("§cErreur : Le warp §l"+args[0]+"§c n'a pas été créé suite à une erreur interne (voir console)");
 					}
-				}else p.sendMessage("§cErreur §8» §c Le warp §l"+args[0]+"§c existe déjà ! Pour le supprimer, faites /delbwarp §l"+args[0]);
+				}else p.sendMessage("§cErreur : Le warp §l"+args[0]+"§c existe déjà ! Pour le supprimer, faites /delbwarp §l"+args[0]);
 			}
 		}else p.sendMessage("§cTu n'as pas accès à cette commande !");
 		return true;

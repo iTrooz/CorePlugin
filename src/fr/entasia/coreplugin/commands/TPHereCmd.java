@@ -14,10 +14,10 @@ public class TPHereCmd implements CommandExecutor {
 		if(!(sender instanceof Player))return false;
 		Player p = (Player) sender;
 		if(p.hasPermission("entasia.tphere")){
-			if(args.length == 0)p.sendMessage("§cErreur §8» §c Utilisation : /tphere <joueur>");
+			if(args.length == 0)p.sendMessage("§cErreur : Utilisation : /tphere <joueur>");
 			else{
 				Player target = Bukkit.getPlayer(args[0]);
-				if(target == null)p.sendMessage("§cErreur §8» §c Ce joueur n'est pas connecté ou n'existe pas !");
+				if(target == null)p.sendMessage("§cErreur : Ce joueur n'est pas connecté ou n'existe pas !");
 				else{
 					target.teleport(p.getLocation());
 					p.sendMessage("§aTu as téléporté "+ Utils.formatPlayerSuffix(target)+"§a à toi !");

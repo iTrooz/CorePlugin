@@ -25,7 +25,7 @@ public class ClearCmd implements CommandExecutor {
 			}else{
 				if(p.hasPermission("entasia.clear.others")){
 					Player target = Bukkit.getPlayer(args[0]);
-					if(target == null) p.sendMessage("§cErreur §8» §c Ce joueur n'est pas connecté ou n'existe pas !");
+					if(target == null) p.sendMessage("§cErreur : Ce joueur n'est pas connecté ou n'existe pas !");
 					else{
 						int items = 0;
 						for(ItemStack it : target.getInventory().getContents()) if(it != null) items += it.getAmount();

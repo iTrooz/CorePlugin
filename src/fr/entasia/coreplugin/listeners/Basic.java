@@ -44,7 +44,7 @@ public class Basic implements Listener {
 	public void onJoin(PlayerLoginEvent e){
 		if(Main.lockdown!=null){
 			if(e.getPlayer().hasPermission("staff.lockdown.bypass")){
-				e.getPlayer().sendMessage(" \n§6Lockdown §8» §c§lTu as rejoint un serveur en maintenance !\n ");
+				e.getPlayer().sendMessage(" \n§6Lockdown :§lTu as rejoint un serveur en maintenance !\n ");
 			}else{
 				e.setKickMessage("§cServeur en maintenance ! Raison : "+ Main.lockdown);
 				e.setResult(PlayerLoginEvent.Result.KICK_OTHER);

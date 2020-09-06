@@ -17,11 +17,11 @@ public class DelBWarpCmd implements CommandExecutor {
 		if(!(sender instanceof Player))return false;
 		Player p = (Player) sender;
 		if(p.hasPermission("build.delbwarp")){
-			if(args.length ==0)p.sendMessage("§cErreur §8» §c Mauvaise utilisation de la commande ! /delbwarp <Nom du warp>");
+			if(args.length ==0)p.sendMessage("§cErreur : Mauvaise utilisation de la commande ! /delbwarp <Nom du warp>");
 			else {
 				Warp a = Warp.getByName(args[0]);
 				if(a == null)
-					p.sendMessage("§cErreur §8» §c Le warp §l" + args[0] + "§c n'existe pas !");
+					p.sendMessage("§cErreur : Le warp §l" + args[0] + "§c n'existe pas !");
 				else{
 					try {
 						Main.warps.remove(a);
@@ -31,7 +31,7 @@ public class DelBWarpCmd implements CommandExecutor {
 					} catch (IOException e) {
 						e.printStackTrace();
 						Main.warps.add(a);
-						p.sendMessage("§cErreur §8» §c Le warp §l" + args[0] + "§c n'a pas été supprimé suite à une erreur interne (voir console)");
+						p.sendMessage("§cErreur : Le warp §l" + args[0] + "§c n'a pas été supprimé suite à une erreur interne (voir console)");
 					}
 				}
 			}

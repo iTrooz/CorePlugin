@@ -27,7 +27,7 @@ public class NVCmd implements CommandExecutor {
 				}else{
 				if(p.hasPermission("entasia.nightvision.others")){
 					Player target = Bukkit.getPlayer(args[0]);
-					if(target==null)p.sendMessage("§cErreur §8» §c"+args[0]+" n'est pas connecté ou n'existe pas !");
+					if(target==null)p.sendMessage("§cErreur :"+args[0]+" n'est pas connecté ou n'existe pas !");
 					else{
 						if(target.hasPotionEffect(PotionEffectType.NIGHT_VISION)){
 							target.removePotionEffect(PotionEffectType.NIGHT_VISION);
@@ -37,7 +37,7 @@ public class NVCmd implements CommandExecutor {
 							p.sendMessage("§aTu as activé la vision nocturne de "+ Utils.formatPlayerSuffix(target)+" §a!");
 						}
 					}
-				}else p.sendMessage("§cErreur §8» §cTu n'as pas la permission de changer la vision nocture des autres joueurs !");
+				}else p.sendMessage("§cErreur :Tu n'as pas la permission de changer la vision nocture des autres joueurs !");
 			}
 		}else p.sendMessage("§cTu n'as pas accès à cette commande !");
 		return true;

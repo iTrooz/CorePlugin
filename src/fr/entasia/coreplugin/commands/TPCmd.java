@@ -18,7 +18,7 @@ public class TPCmd implements CommandExecutor {
 		if(p.hasPermission("entasia.tp")){
 			if(args.length == 1) {
 				Player target = Bukkit.getPlayer(args[0]);
-				if (target == null) p.sendMessage("§cErreur §8» §c "+args[0]+" n'est pas connecté ou n'existe pas !");
+				if (target == null) p.sendMessage("§cErreur : "+args[0]+" n'est pas connecté ou n'existe pas !");
 				else{
 					p.teleport(target.getLocation());
 					p.sendMessage("§aTu t'es téléporté à " + Utils.formatPlayerSuffix(target)+ "§a !");
@@ -27,10 +27,10 @@ public class TPCmd implements CommandExecutor {
 			}else if(args.length == 2){
 				if(p.hasPermission("entasia.tp.others")){
 					Player target = Bukkit.getPlayer(args[0]);
-					if (target == null) p.sendMessage("§cErreur §8» §c "+args[0]+" n'est pas connecté ou n'existe pas!");
+					if (target == null) p.sendMessage("§cErreur : "+args[0]+" n'est pas connecté ou n'existe pas!");
 					else{
 						Player to = Bukkit.getPlayer(args[1]);
-						if (to == null) p.sendMessage("§cErreur §8» §c "+args[1]+" n'est pas connecté ou n'existe pas!");
+						if (to == null) p.sendMessage("§cErreur : "+args[1]+" n'est pas connecté ou n'existe pas!");
 						else{
 							target.teleport(to.getLocation());
 							p.sendMessage("§aTu as téléporté "+ Utils.formatPlayerSuffix(target)+"§a a "+ Utils.formatPlayerSuffix(to)+"§a !");
@@ -38,7 +38,7 @@ public class TPCmd implements CommandExecutor {
 
 					}
 
-				}else p.sendMessage("§cErreur §8» §cTu n'as pas la permission de te téléporter d'autres joueurs !");
+				}else p.sendMessage("§cErreur :Tu n'as pas la permission de te téléporter d'autres joueurs !");
 
 			}else if(args.length >= 3){
 				if(p.hasPermission("entasia.tp.coordinates")){
@@ -51,7 +51,7 @@ public class TPCmd implements CommandExecutor {
 						if (args.length >= 4) {
 							loc.setWorld(Bukkit.getWorld(args[3]));
 							if (loc.getWorld() == null) {
-								p.sendMessage("§cErreur §8» §c Le monde " + args[3] + " n'existe pas !");
+								p.sendMessage("§cErreur : Le monde " + args[3] + " n'existe pas !");
 								return true;
 							}
 							p.sendMessage("§aTu as été téléporté en " + args[0] + " " + args[1] + " " + args[2] + "  monde " + args[3] + " !");
@@ -60,7 +60,7 @@ public class TPCmd implements CommandExecutor {
 						}
 						p.teleport(loc);
 					} catch (NumberFormatException e) {
-						p.sendMessage("§cErreur §8» §c Les coordonnées sont invalides !");
+						p.sendMessage("§cErreur : Les coordonnées sont invalides !");
 					}
 				}else p.sendMessage("§cErreur : Tu n'as pas la permission de te téléporter à des coordonnées !");
 			}else p.sendMessage("§cErreur : Utilisations de la commande : /tp <joueur> ou ou /tp <joueur 1> <joueur 2> ou /tp <x> <y> <z> [monde]");
