@@ -18,7 +18,7 @@ public class GamemodeCmd implements CommandExecutor {
 			if (args.length == 0) p.sendMessage("§cErreur : Mauvaise utilisation de la commande ! Utilisation : /gamemode <gamemode>");
 			else {
 				GameMode gm;
-				switch (args[0]) {
+				switch (args[0].toLowerCase()) {
 					case "0":
 					case "s":
 					case "survie":
