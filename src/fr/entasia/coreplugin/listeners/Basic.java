@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class Basic implements Listener {
 
@@ -71,8 +72,13 @@ public class Basic implements Listener {
 				e.setCancelled(true);
 				if(Signer.activate) {
 					Signer.open(e.getPlayer(), e.getClickedBlock().getX(), e.getClickedBlock().getY(), e.getClickedBlock().getZ(), (String[] lines) -> {
-						Sign sign = (Sign) e.getClickedBlock().getState();
-						for (int i = 0; i < 4; i++) sign.setLine(i, lines[i]);
+						new BukkitRunnable() {
+							@Override
+							public void run() {
+								Sign sign = (Sign) e.getClickedBlock().getState();
+								for (int i = 0; i < 4; i++) sign.setLine(i, lines[i]);
+							}
+						}.runTask(Main.main); // en cours de test : async des fois, fait crash le serv ?
 					});
 				}
 			}
