@@ -1,6 +1,5 @@
 package fr.entasia.coreplugin.listeners;
 
-import fr.entasia.apis.other.Signer;
 import fr.entasia.coreplugin.Main;
 import fr.entasia.coreplugin.Utils;
 import org.bukkit.Material;
@@ -70,17 +69,6 @@ public class Basic implements Listener {
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
 			if(Tag.SIGNS.isTagged(e.getClickedBlock().getType())) {
 				e.setCancelled(true);
-				if(Signer.activate) {
-					Signer.open(e.getPlayer(), e.getClickedBlock().getX(), e.getClickedBlock().getY(), e.getClickedBlock().getZ(), (String[] lines) -> {
-						new BukkitRunnable() {
-							@Override
-							public void run() {
-								Sign sign = (Sign) e.getClickedBlock().getState();
-								for (int i = 0; i < 4; i++) sign.setLine(i, lines[i]);
-							}
-						}.runTask(Main.main); // en cours de test : async des fois, fait crash le serv ?
-					});
-				}
 			}
 		}
 	}

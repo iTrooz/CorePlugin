@@ -1,6 +1,5 @@
 package fr.entasia.coreplugin;
 
-import fr.entasia.apis.socket.SocketClient;
 import fr.entasia.coreplugin.commands.*;
 import fr.entasia.coreplugin.listeners.Basic;
 import fr.entasia.coreplugin.listeners.Others;
@@ -77,7 +76,6 @@ public class Main extends JavaPlugin{
 			if(dataconfig.getStringList("spyers")!=null) spyers.addAll(dataconfig.getStringList("spyers"));
 			lockdown = dataconfig.getString("lockdown");
 
-			SocketClient.sendData("onlines 0");
 			getLogger().info("Plugin activé !");
 		}catch(Throwable e){
 			e.printStackTrace();

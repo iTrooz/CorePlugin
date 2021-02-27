@@ -1,9 +1,6 @@
 package fr.entasia.coreplugin.listeners;
 
 import fr.entasia.apis.other.ChatComponent;
-import fr.entasia.apis.other.Pair;
-import fr.entasia.apis.socket.SocketClient;
-import fr.entasia.apis.utils.LPUtils;
 import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.apis.utils.TextUtils;
 import fr.entasia.coreplugin.Main;
@@ -25,20 +22,6 @@ import org.bukkit.event.server.ServerCommandEvent;
 import java.util.regex.Pattern;
 
 public class Others implements Listener {
-
-	@EventHandler
-	public void PlayerLogin(PlayerLoginEvent e) {
-		if (ServerUtils.isGameServer()) {
-			SocketClient.sendData("onlines " + (Bukkit.getOnlinePlayers().size() + 1));
-		}
-	}
-
-	@EventHandler
-	public void PlayerQuit(PlayerQuitEvent e) {
-		if (ServerUtils.isGameServer()) {
-			SocketClient.sendData("onlines " + (Bukkit.getOnlinePlayers().size() - 1));
-		}
-	}
 
 	@EventHandler
 	public void onPlayerCommand(PlayerCommandPreprocessEvent e) {
@@ -97,8 +80,7 @@ public class Others implements Listener {
 
 
 	private static String format(Player p){
-		if(LPUtils.enabled) return  LPUtils.getPrefixSafe(p).key;
-		else return "";
+		return "";
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
@@ -117,7 +99,6 @@ public class Others implements Listener {
 		if(ServerUtils.bungeeMode){
 			e.setCancelled(true);
 			e.getPlayer().sendMessage("§cVous avez été kick du serveur "+ServerUtils.serverName+" ! Raison : \n§7"+e.getReason());
-			SocketClient.sendData("BungeeCord send "+e.getPlayer().getName()+" hub");
 		}
 	}
 
